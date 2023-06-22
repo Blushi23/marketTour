@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+body {
+  background-image: url(/images/stone-texture.jpg);
+}
+
+.marketLogo {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar a {
+  color: #30ac0a;
+  font-size: 1.7rem;
+  font-weight: bold;
+  font-family: philosopher;
+}
+
+.navbar a:hover {
+  color: #123501;
+}
+
+#cart {
+  font-size: 1.8rem;
+}
+
+.carousel-item img {
+  max-height: 450px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carousel-item h5 {
+  color: #0af272;
+  text-shadow: 2px 2px 2px #123501;
+  font-family: handlee;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.galleryLink {
+  text-align: center;
+}
+
+.toursGallery {
+  cursor: pointer;
+  position: relative;
+  padding: 10px 20px;
+  margin: 20px 0;
+  text-align: center;
+  background-color: #0af272;
+  font-size: 28px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  transition: all 1s;
+  font-family: acme;
+}
+.toursGallery:after, .toursGallery:before {
+  content: " ";
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  border: 0px solid #fcfafa;
+  transition: all 1s;
+}
+.toursGallery:after {
+  top: -1px;
+  left: -1px;
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+}
+.toursGallery:before {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+}
+.toursGallery:hover {
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  color: #057c09;
+  text-shadow: 3px 3px 3px #0af272;
+}
+.toursGallery:hover:before, .toursGallery:hover:after {
+  width: 100%;
+  height: 100%;
+}
+
+.about {
+  border: 5px solid #30ac0a;
+  margin: 0 20px 10px 20px;
+  background: rgba(215, 241, 232, 0.5098039216);
+}
+
+.about p,
+.about h3 {
+  margin: 15px;
+  text-align: justify;
+}
+
+.about h3 {
+  font-family: acme;
+  font-size: 2rem;
+}
+
+.about p {
+  font-family: philosopher;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.backToTop {
+  text-align: right;
+  margin-bottom: 10px;
+  font-family: philosopher;
+}
+
+.top {
+  text-decoration: none;
+  color: #185703;
+  margin: 10px;
+}
+
+.top:hover {
+  color: rgb(146, 4, 4);
+}
+
+footer {
+  background-color: rgba(156, 236, 162, 0.6039215686);
+}
+
+footer h2,
+footer p,
+footer h5 {
+  margin: 30px;
+}
+
+footer h2,
+footer h5 {
+  font-family: philosopher;
+  font-weight: bolder;
+}
+
+footer p {
+  font-family: handlee;
+  font-size: 1.1rem;
+}
+
+.smallLogo {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.logos {
+  font-size: 3rem;
+  color: #1d5102;
+}
+
+.logos i {
+  cursor: pointer;
+}
+
+.logos h5 {
+  color: black;
+}
+
+footer h6 {
+  text-align: center;
+  font-family: handlee;
+  font-weight: bold;
+}
+
+.card-text,
+.modal-body {
+  text-align: justify;
+  font-family: handlee;
+}
+
+.modalContainer {
+  margin: 20px;
+}
+
+#tours {
+  margin: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toursContainer h1 {
+  font-family: acme;
+  color: rgb(8, 128, 8);
+}
+
+.marketCard {
+  margin: 10px 0;
+}
+
+.card img {
+  height: 180px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card {
+  height: 26rem;
+}
+
+.card-title,
+#title {
+  font-family: acme;
+}
+
+.transferBtn,
+.addToCart {
+  background-color: #30ac0a;
+  font-family: handlee;
+}
+
+.transferBtn:hover,
+.addToCart:hover {
+  background-color: transparent;
+  border: 1px solid #30ac0a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 700px;
+  width: 100%;
+  background: rgba(1, 78, 30, 0.5647058824);
+  padding: 25px;
+  margin: 0 25px 25px;
+  border-radius: 5px;
+  box-shadow: -8px 8px 3px rgb(12, 48, 16);
+  font-family: handlee;
+  font-size: 1.2rem;
+}
+
+.wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-family: acme;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #b7f5c6;
+}
+
+.wrapper .input_field {
+  margin-bottom: 15px;
+}
+
+.wrapper .input_field input[type=text],
+.wrapper textarea {
+  border: 1px solid #103401;
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.wrapper textarea {
+  resize: none;
+  height: 100px;
+}
+
+.wrapper .btn input[type=submit] {
+  border: 0px;
+  margin-top: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  background: rgb(3, 101, 16);
+  color: #b7f5c6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#error_message {
+  margin-bottom: 20px;
+  background: rgba(195, 7, 13, 0.9176470588);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0;
+  text-align: center;
+  transition: all 0.5s ease;
+  border-radius: 10px;
+}/*# sourceMappingURL=main.css.map */

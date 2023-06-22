@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.contact-container {
+    display: flex;
+    ;
+    justify-content: center;
+}
+
+.wrapper {
+    max-width: 700px;
+    width: 100%;
+    background: #014e1e90;
+    padding: 25px;
+    margin: 0 25px 25px;
+    border-radius: 5px;
+    box-shadow: -8px 8px 3px rgb(12, 48, 16);
+    font-family: $writingFont;
+    font-size: 1.2rem;
+}
+
+.wrapper h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: $titleFont;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #b7f5c6;
+}
+
+.wrapper .input_field {
+    margin-bottom: 15px;
+}
+
+.wrapper .input_field input[type="text"],
+.wrapper textarea {
+    border: 1px solid #103401;
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.wrapper textarea {
+    resize: none;
+    height: 100px;
+}
+
+.wrapper .btn input[type="submit"] {
+    border: 0px;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    background: rgb(3, 101, 16);
+    color: #b7f5c6;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+#error_message {
+    margin-bottom: 20px;
+    background: #c3070dea;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0;
+    text-align: center;
+    // font-size: 14px;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+
+}
