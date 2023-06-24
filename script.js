@@ -1,10 +1,26 @@
+let openCart = document.querySelector('.cart');
+let closeCart = document.getElementById('closeCart');
+let list = document.getElementById('tours');
+let cartList = document.getElementById('cartList');
+let body = document.getElementById('body');
+let total = document.getElementById('total');
+let quantity = document.getElementById('quantity');
+
+
+openCart.addEventListener('click', () => {
+    body.classList.add('active');
+});
+closeCart.addEventListener('click', () => {
+    body.classList.remove('active');
+})
+
 let tours = [
     {
         id: 1,
         name: "Hacarmel market",
         price: 250,
         duration: "3 hours",
-        shortDescription: " A tour in the best market in Tel Aviv! Taste international flavors with the best Israeli environment.",
+        shortDescription: "A tour in the best market in Tel Aviv! Taste international flavors with the best Israeli environment.",
         description: `<p> Hacarmel Market in Tel Aviv is known for its unique flavors, music and history. </p><p> You will meet the Basta's sellers and hear their stories and you will meet a whole world that connects between culture, history and food.</p>
         <p> You can try on this tour flavors from all over the world- from south America to the East.You will walk around the side twisting alleys with a cold glass of wine, meet the neighborhoods near the market and hear a live music concert.</p>
          <h5>What will you taste?</h5>
@@ -41,7 +57,7 @@ let tours = [
     },
     {
         id: 4,
-        name: "KEREM HATEIMANIM",
+        name: "Kerem Hateimanim",
         price: 250,
         duration: "3 hours",
         shortDescription: "Night culinary tour in one of the best food parties in town, with authentic, exotic and special foods.",
@@ -59,10 +75,10 @@ let tours = [
     },
     {
         id: 5,
-        name: "FLORENTINE",
+        name: "Florentine",
         price: 270,
         duration: "3.5 hours",
-        shortDescription: "Looking for a tour that will fill your stomach and your head? This one is just for you!",
+        shortDescription: "Looking for a tour that will fill your stomach and your head? This one is tailor made just for you!",
         description: `<p> We invite you to join us in a tour in the youngest and most chic neighborhood in town that combines between street art and international culinary perfectly. </p>
     <p>Between a European dish to a dreamy taste from exotic country, you'll absorb the special place atmosphere, have a close look at the unique street art, listen to fascinating stories about the foodies that opened restaurants and stands in the neighborhood, dive into Bialik's legend that became a street, go back to the underground fighters who worked in the neighborhood and understand how the special florentinian character was created.</p><br>
     <h5>What will you taste?</h5>
@@ -77,7 +93,7 @@ let tours = [
     },
     {
         id: 6,
-        name: "Flea market",
+        name: "Jaffa Flea market",
         price: 235,
         duration: "2 hours",
         shortDescription: "You are all welcome for a lovely culinary tour in the new edition of the flea market in magical Jaffa.",
@@ -137,7 +153,6 @@ let tours = [
     {
         id: 9,
         name: "Talpiot market, Haifa",
-
         price: 220,
         duration: "2 hours",
         shortDescription: "The market that keeps being young and modern and still keeps its addictive authenticity at the same time.",
@@ -156,17 +171,18 @@ let tours = [
         image: "/images/talpiot.jpg"
     },
 ];
+
 function showTours() {
-    for (let i = 0; i < tours.length; i++) {
+    for (let tour of tours) {
         document.getElementById("tours").innerHTML += `
         <div class="col-lg-4 col-md-6 marketCard">
         <div class="card" style="width: 19rem;">
-                <img src=${tours[i].image} class="card-img-top" alt=${tours[i].name}>
+                <img src=${tour.image} class="card-img-top" alt=${tour.name}>
                     <div class="card-body">
-                        <h5 class="card-title">${tours[i].name}</h5>
-                        <p class="card-text">${tours[i].shortDescription}</p>
-                        <p class="card-text"><i class="fa-regular fa-clock"></i> <b>Duration:</b> ${tours[i].duration}</p>
-                        <a data-bs-toggle="modal" data-bs-target="#infoModal" class="btn w-100 transferBtn" onclick="setModal(${i})">View Tour</a>
+                        <h5 class="card-title">${tour.name}</h5>
+                        <p class="card-text">${tour.shortDescription}</p>
+                        <p class="card-text"><i class="fa-regular fa-clock"></i> <b>Duration:</b> ${tour.duration}</p>
+                        <a data-bs-toggle="modal" data-bs-target="#infoModal" class="btn w-100 transferBtn" onclick="setModal(${tour.id - 1})">View Tour</a>
                     </div>
             </div>
         </div>`
@@ -174,13 +190,58 @@ function showTours() {
 }
 showTours();
 
-function setModal(index) {
-    document.getElementById("title").innerText = tours[index].name;
-    document.getElementById("modalText").innerHTML = `<p class="modal-text">${tours[index].description}</p><p><i class="fa-regular fa-clock"></i><b> Duration:</b> ${tours[index].duration}</p><h4 class="text-end price">Price: ${tours[index].price} NIS</h4><button class="btn addToCart"><i class="fa-solid fa-cart-plus"></i> Add to cart</button>
-    `
-    // <button class="btn addToCart mb-1" id="addToCart"><i class="fa-solid fa-cart-plus"></i> Add to cart</button>
+function setModal(id) {
+    document.getElementById("title").innerText = tours[id].name;
+    document.getElementById("modalText").innerHTML = `<p class="modal-text"> ${tours[id].description}</p><p><i class="fa-regular fa-clock"></i><b> Duration:</b> ${tours[id].duration}</p><h4 class="price text-end">Price: ${tours[id].price} NIS</h4><button class="btn addToCart mb-1" onclick="addToCart(${id})"><i class="fa-solid fa-cart-plus"></i> Add to cart</button>`;
 }
 
+quantity = 0;
+
+function addToCart(id) {
+    let listItem = document.getElementById('chosenTours');
+    let tour = tours[id];
+    listItem.innerHTML += `<li><button class=" btn btnRemove" onclick="removeFromCart(${tour.id - 1})"><i class="fa-regular fa-square-minus"></i></button> ${tour.name} - ${tour.price} NIS</li>`;
+    quantity++;
+    document.getElementById('quantity').textContent = quantity;
+
+    let cartItems = listItem.getElementsByTagName('li');
+    let totalPrice = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+        let item = cartItems[i].innerText;
+        let price = item.split('-')[1];
+        totalPrice += parseInt(price);
+    }
+    total.innerText = `Total: ${totalPrice} NIS`
+}
+
+function removeFromCart(id) {
+    let listItem = document.getElementById('chosenTours');
+    let tour = tours[id];
+    let cartItems = listItem.getElementsByTagName('li');
+
+    let totalPrice = 0;
+    for (let i = 0; i < cartItems.length; i++) {
+        let item = cartItems[i].innerText;
+        let price = parseInt(item.split("-")[1]);
+        totalPrice += price;
+
+        if (item.includes(tour.name)) {
+            listItem.removeChild(cartItems[i]);
+        }
+    }
+    quantity--;
+    document.getElementById('quantity').textContent = quantity;
+
+    totalPrice -= tour.price;
+    document.getElementById('total').innerText = `Total: ${totalPrice} NIS`;
+}
+
+total.addEventListener('click', () => {
+    alert("Thank you for your purchase! We will contact you for payment and choosing day for your tour.");
+    document.getElementById("cartList").innerText = "";
+    document.getElementById("total").innerText = "Total: 0 NIS";
+    document.getElementById("quantity").innerText = "0";
+    body.classList.remove('active');
+});
 
 
-// // shopping cart

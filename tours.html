@@ -13,11 +13,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Acme&family=Bagel+Fat+One&family=Handlee&family=Philosopher&display=swap"
         rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <title>Tours</title>
+
 </head>
 
-<body>
+<body id="body">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html"><img src="images/market.png" alt="logo" class="marketLogo"></a>
@@ -39,17 +41,23 @@
                     </li>
                 </ul>
             </div>
-            <i id="cart" class="fa-solid fa-cart-shopping"></i>
         </div>
     </nav>
 
-    <div class="toursContainer m-3 text-center">
-        <h1>Tours options</h1>
-        <div class="row" id="tours">
-        </div>
+    <div class="toursContainer mb-3">
+        <header>
+            <div class="cartIcon" id="cart">
+                <i class="fa-solid fa-cart-shopping cart"></i>
+                <span class="quantity" id="quantity">0</span>
+            </div>
+
+            <h1 class="text-center">Tours options</h1>
+            <div class="row" id="tours">
+            </div>
+        </header>
     </div>
 
-    <!--Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -61,6 +69,19 @@
                     ...
                 </div>
             </div>
+        </div>
+    </div>
+
+
+    <!-- cart -->
+    <div class="cart-model">
+        <h1>Shopping Cart</h1>
+        <div class="cartList" id="cartList">
+            <ul id="chosenTours"></ul>
+        </div>
+        <div class="checkOut">
+            <div class="total" id="total">Total: 0 NIS</div>
+            <div class="closeCart" id="closeCart">Close</div>
         </div>
     </div>
 

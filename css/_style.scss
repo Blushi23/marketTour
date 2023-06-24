@@ -18,10 +18,6 @@ body {
     color: #123501;
 }
 
-#cart {
-    font-size: 1.8rem;
-}
-
 .carousel-item img {
     max-height: 450px;
     object-fit: cover;
@@ -182,7 +178,6 @@ footer h6 {
 .modal-body {
     text-align: justify;
     font-family: $writingFont;
-    // font-size: 1.1rem;
 }
 
 .modalContainer {
@@ -216,16 +211,12 @@ footer h6 {
 .card-title,
 #title {
     font-family: $titleFont;
-    // font-size: 1.5rem;
 }
 
 .transferBtn,
 .addToCart {
     background-color: $marketFontColor;
     font-family: $writingFont;
-    // font-size: 1.1rem;
-    // margin: 10px;
-    // margin-bottom: 0;
 }
 
 .transferBtn:hover,

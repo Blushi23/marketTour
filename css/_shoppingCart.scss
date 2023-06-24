@@ -1,0 +1,129 @@
+.toursContainer {
+    margin: auto;
+    transition: 0.5s;
+}
+
+header #cart {
+    position: relative;
+    text-align: right;
+    margin-right: 40px;
+}
+
+#cart {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+header #cart span {
+    background: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 1px 6px;
+    font-size: 1rem;
+}
+
+.cart-model {
+    position: fixed;
+    top: 0;
+    left: 1000%;
+    width: 300px;
+    background-color: rgb(19, 88, 1, 0.9);
+    height: 100vh;
+    transition: left 0.8s;
+}
+
+.active .cart-model {
+    left: calc(100% - 300px);
+}
+
+.active .toursContainer {
+    transform: translateX(0);
+}
+
+.cart-model h1 {
+    color: #E8BC0E;
+    font-family: $writingFont;
+    font-weight: 200;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.cartList {
+    color: #fff;
+    font-family: $writingFont;
+    font-weight: 100;
+    display: flex;
+    justify-content: left;
+    text-align: left;
+}
+
+.btnRemove {
+    background-color: transparent !important;
+    padding: 0;
+    margin: 3px;
+    display: flex;
+    justify-content: start;
+}
+
+.btnRemove i {
+    color: #E8BC0E;
+}
+
+.cart-model .checkOut {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.cart-model .checkOut div {
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: rgb(19, 88, 1);
+    font-family: $writingFont;
+    cursor: pointer;
+}
+
+.cart-model .checkOut div:nth-child(2) {
+    background-color: #02490e;
+    color: #E8BC0E;
+}
+
+.cartList li {
+    display: grid;
+    grid-template-columns: 25px repeat(1, 1fr);
+    color: #fff;
+    row-gap: 0;
+}
+
+.cartList li div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartList li button {
+    background-color: #E8BC0E;
+    border: none;
+    color: #02490e;
+}
+
+.cartList .count {
+    margin: 0 10px;
+}
